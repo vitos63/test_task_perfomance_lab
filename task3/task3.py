@@ -1,7 +1,8 @@
+from sys import argv
 import json
 
 
-def create_report(path_to_values:str, path_to_tests:str, path_to_report:str) -> None:
+def create_report(path_to_values: str, path_to_tests: str, path_to_report: str) -> None:
     with open(path_to_values) as file:
         values_data = json.load(file)
 
@@ -20,7 +21,7 @@ def create_report(path_to_values:str, path_to_tests:str, path_to_report:str) -> 
         json.dump(report_data, file)
 
 
-def update_values(values_dict:dict, tests_list:list) -> None:
+def update_values(values_dict: dict, tests_list: list) -> None:
     for test in tests_list:
         id = test["id"]
         if id in values_dict:
@@ -30,7 +31,6 @@ def update_values(values_dict:dict, tests_list:list) -> None:
             update_values(values_dict, test["values"])
 
 
-path_to_values = input()
-path_to_tests = input()
-path_to_report = input()
-create_report(path_to_values, path_to_tests, path_to_report)
+if __name__ == "__main__":
+    path_to_values, path_to_tests, path_to_report = argv[1:4]
+    create_report(path_to_values, path_to_tests, path_to_report)

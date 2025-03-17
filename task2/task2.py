@@ -1,4 +1,7 @@
-def point_position(path_circle_coordinates:str, path_points_coordinates:str) -> None:
+from sys import argv
+
+
+def point_position(path_circle_coordinates: str, path_points_coordinates: str) -> None:
     with open(path_circle_coordinates, encoding="utf-8") as file1:
         x0, y0, radius = [int(i) for i in file1.read().split()]
 
@@ -16,6 +19,6 @@ def point_position(path_circle_coordinates:str, path_points_coordinates:str) -> 
                 print(2)
 
 
-path_circle_coordinates = input()
-path_points_coordinates = input()
-point_position(path_circle_coordinates, path_circle_coordinates)
+if __name__ == "__main__":
+    path_circle_coordinates, path_points_coordinates = argv[1:3]
+    point_position(path_circle_coordinates, path_points_coordinates)

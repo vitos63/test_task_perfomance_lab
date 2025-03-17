@@ -1,4 +1,7 @@
-def find_path(n:int, m:int) -> str:
+from sys import argv
+
+
+def find_path(n: int, m: int) -> str:
     if n <= 0:
         return ""
 
@@ -16,6 +19,6 @@ def find_path(n:int, m:int) -> str:
     return "".join(result)
 
 
-n, m = [int(i) for i in input().split()]
-
-print(find_path(n, m))
+if __name__ == "__main__":
+    n, m = map(int, argv[1:3])
+    print(find_path(n, m))
